@@ -1,0 +1,27 @@
+Data:
+	FILE IS
+		"file.txt";
+	FORMAT IS FREE;
+VARIABLE:
+	NAMES ARE Q1-Q20 Q21gives Q21show Q21push Q21raise Q21reach
+          Q21waves Q21ptnr Q21ptfar	Q21shake Q21nods Q22-Q25 Q27-Q47
+         AgeGroup ChildKey;
+	USEVARIABLES ARE Q1-Q11 Q14-Q19 Q21gives Q21show Q21push Q21raise Q21reach
+          Q21waves Q21ptnr Q21ptfar	Q21shake Q21nods Q22
+        Q24 Q30-Q32 Q37-Q39 Q41 ChildKey;  
+	CATEGORICAL = Q1 Q3-Q11 Q14-Q19 Q21gives Q21show Q21push Q21raise Q21reach
+          Q21waves Q21ptnr Q21ptfar	Q21shake Q21nods Q22
+        Q24 Q30 Q32 Q37 Q39 Q41;
+	IDVARIABLE IS ChildKey;
+	
+ANALYSIS:
+	ESTIMATOR = WLSMV;
+	!TYPE IS BASIC;
+	TYPE IS EFA 1 5;
+	ROTATION= GEOMIN;
+	
+OUTPUT:
+	RESIDUAL;
+	PLOT: TYPE = PLOT2;
+	!MODINDICES RESIDUAL;
+	!SAVEDATA: SAMPLE IS corr.dat;
